@@ -1,43 +1,25 @@
-# REMATES.PRO — Landing (React + Vite + Tailwind)
+# REMATES.PRO — Static Landing (GitHub Pages Ready)
 
-Landing comercial oscura y minimalista para remates inmobiliarios. Incluye:
-- Catálogo con filtros y tarjetas animadas.
-- Botones y microinteracciones con Framer Motion.
-- Conector opcional a **Google Sheets** (carga catálogo vía GViz).
+Sitio **estático** (sin build) listo para subir a **GitHub Pages**. Incluye:
+- Estilo oscuro y minimalista (Tailwind CDN).
+- Catálogo con filtros y tarjetas.
+- Animaciones sutiles (CSS + IntersectionObserver).
+- Íconos (lucide) vía CDN.
+- **Conector a Google Sheets** (GViz JSON): pega el *Sheet ID* y la pestaña.
 
-## Requisitos
-- Node.js 18+
-- npm 9+ o pnpm/yarn
+## Cómo publicarlo
+1. Descomprime este ZIP.
+2. Sube **todo el contenido** a tu repositorio `USERNAME.github.io` en la **raíz** (no dentro de carpetas).
+3. Asegúrate de tener un archivo vacío llamado `.nojekyll` en la raíz (ya incluido).
+4. En **Settings → Pages**, selecciona: *Branch* = `main`, *Folder* = `/ (root)`.
+5. Abre `https://USERNAME.github.io/`.
 
-## Instalación y arranque
-```bash
-npm install
-npm run dev
-# abre http://localhost:5173
-```
+> No requiere Node ni build. GitHub Pages servirá `index.html` directamente.
 
-## Producción
-```bash
-npm run build
-npm run preview
-```
-
-## Conectar Google Sheets
-1. En tu hoja: **Archivo → Compartir → Publicar en la web** (elige la pestaña).
-2. Copia el **ID** del documento (entre `/d/` y `/edit` en la URL).
-3. En la sección **Conectar con Google Sheets**, pega el ID y el nombre de la pestaña (p.ej. `Listado`).
-4. La hoja debe tener columnas:  
-   `titulo, ciudad, tipo, area, habitaciones, banos, descuento, precioBase, fecha, direccion, imagen`.
-
-## Stack
-- Vite + React 18
-- TailwindCSS 3
-- Framer Motion
-- lucide-react
-
-## Despliegue
-- Sube a GitHub y conecta con **Vercel** o **Netlify**.
-- En Vercel: framework **Vite**, comando build `vite build`, directorio `dist`.
+## Google Sheets
+- Publica tu hoja: **Archivo → Compartir → Publicar en la web** (o compártela como “Cualquiera con el enlace – lector”).
+- Columnas esperadas: `titulo, ciudad, tipo, area, habitaciones, banos, descuento, precioBase, fecha, direccion, imagen`.
+- En la sección “Conectar con Google Sheets”, pega el **Sheet ID** y el **nombre de la pestaña** y presiona **Cargar desde Sheets**.
 
 ---
 © 2025 REMATES.PRO

@@ -1,13 +1,148 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>REMATES.PRO</title>
-    <meta name="description" content="Remates inmobiliarios con alto potencial en un solo lugar." />
-  </head>
-  <body class="bg-black">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REMATES.PRO</title>
+  <meta name="description" content="Remates inmobiliarios con alto potencial en un solo lugar.">
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { } } };
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <style>
+    /* Extra utilidades */
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+    .bg-radial { background-image: radial-gradient(ellipse at center, rgba(255,255,255,.08), transparent 60%); }
+  </style>
+</head>
+<body class="bg-black text-white selection:bg-white selection:text-black">
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-black/70 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <i data-lucide="home" class="w-6 h-6"></i>
+        <span class="tracking-wider font-semibold text-xl md:text-2xl">REMATES.PRO</span>
+      </div>
+      <a href="#contacto" class="inline-flex items-center gap-2 rounded-2xl border border-white px-5 py-3 text-sm md:text-base hover:bg-white hover:text-black transition transform hover:-translate-y-0.5 hover:scale-[1.02]">
+        Habla con un asesor <i data-lucide="arrow-right" class="w-5 h-5 md:w-6 md:h-6"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden border-b border-white/10">
+    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1800&auto=format&fit=crop" alt="Remates inmobiliarios" class="absolute inset-0 w-full h-full object-cover opacity-60">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+    <div class="relative mx-auto max-w-7xl px-4 py-18 md:py-28">
+      <h1 class="text-3xl md:text-6xl lg:text-7xl font-semibold leading-tight md:whitespace-nowrap reveal">
+        Remates inmobiliarios con <span class="bg-white text-black rounded px-2">alto potencial</span> en un solo lugar
+      </h1>
+      <p class="mt-4 max-w-2xl text-white/80 reveal">
+        Curamos oportunidades reales, filtradas por ubicación, descuento y fecha de subasta. Asesoría integral para participar con seguridad.
+      </p>
+      <div class="mt-8 flex flex-col md:flex-row gap-3">
+        <a href="#catalogo" class="group inline-flex items-center justify-center gap-2 rounded-2xl border border-white px-6 py-4 text-base md:text-lg hover:bg-white hover:text-black transition w-full md:w-auto transform hover:-translate-y-0.5 hover:scale-[1.02]">
+          Ver catálogo <i data-lucide="chevron-right" class="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-0.5"></i>
+        </a>
+        <a href="#contacto" class="group inline-flex items-center justify-center gap-2 rounded-2xl border border-white/30 px-6 py-4 text-base md:text-lg hover:bg-white/10 transition w-full md:w-auto transform hover:-translate-y-0.5 hover:scale-[1.02]">
+          <i data-lucide="bell" class="w-5 h-5 md:w-6 md:h-6"></i> Recibir alertas semanales
+        </a>
+      </div>
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm text-white/80">
+        <div class="rounded-2xl border border-white/15 p-3 bg-black/20 transform hover:-translate-y-0.5 transition">Remates verificados</div>
+        <div class="rounded-2xl border border-white/15 p-3 bg-black/20 transform hover:-translate-y-0.5 transition">Asesoría legal y técnica</div>
+        <div class="rounded-2xl border border-white/15 p-3 bg-black/20 transform hover:-translate-y-0.5 transition">Cobertura nacional</div>
+        <div class="rounded-2xl border border-white/15 p-3 bg-black/20 transform hover:-translate-y-0.5 transition">Acompañamiento 360°</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGO -->
+  <section id="catalogo" class="mx-auto max-w-7xl px-4 py-14">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-semibold">Catálogo de remates activos</h2>
+        <p class="text-white/60 mt-1">Explora y filtra según tu objetivo de inversión.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-3 w-full md:w-auto">
+        <div class="flex items-center gap-2 rounded-2xl border border-white/20 px-3 py-2">
+          <i data-lucide="search" class="w-4 h-4 text-white/50"></i>
+          <input id="q" placeholder="Buscar ciudad, tipo, dirección..." class="bg-transparent outline-none placeholder:text-white/40 w-full" />
+        </div>
+        <div class="flex items-center gap-2 rounded-2xl border border-white/20 px-3 py-2">
+          <i data-lucide="filter" class="w-4 h-4 text-white/50"></i>
+          <select id="city" class="bg-black outline-none w-full"></select>
+        </div>
+        <div class="flex items-center gap-2 rounded-2xl border border-white/20 px-3 py-2">
+          <i data-lucide="filter" class="w-4 h-4 text-white/50"></i>
+          <select id="type" class="bg-black outline-none w-full"></select>
+        </div>
+        <div class="flex items-center gap-2 rounded-2xl border border-white/20 px-3 py-2">
+          <i data-lucide="filter" class="w-4 h-4 text-white/50"></i>
+          <select id="sort" class="bg-black outline-none w-full">
+            <option value="fecha-asc">Más pronto</option>
+            <option value="fecha-desc">Más lejano</option>
+            <option value="precio-asc">Precio ↑</option>
+            <option value="precio-desc">Precio ↓</option>
+            <option value="descuento-desc">Mayor descuento</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="grid" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </section>
+
+  <!-- CONTACTO + SHEETS -->
+  <section id="contacto" class="mx-auto max-w-7xl px-4 py-14 border-t border-white/10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-semibold">Conversemos sobre tu inversión</h2>
+        <p class="text-white/70 mt-2">Cuéntanos qué buscas y te enviamos oportunidades alineadas a tu objetivo.</p>
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a href="tel:+573001112233" class="inline-flex items-center gap-2 rounded-2xl border border-white px-5 py-3 hover:bg-white hover:text-black transition"><i data-lucide="phone" class="w-4 h-4"></i> Llámanos</a>
+          <a href="mailto:contacto@remates.pro" class="inline-flex items-center gap-2 rounded-2xl border border-white/40 px-5 py-3 hover:bg-white/10 transition"><i data-lucide="mail" class="w-4 h-4"></i> Escríbenos</a>
+        </div>
+        <p class="text-xs text-white/40 mt-6">La información publicada tiene fines informativos. Cada oportunidad requiere verificación específica según su expediente y normativa aplicable.</p>
+      </div>
+
+      <div class="rounded-3xl border border-white/10 p-6 bg-white/[0.03]">
+        <h3 class="font-semibold mb-2">Conectar con Google Sheets (opcional)</h3>
+        <p class="text-sm text-white/60 mb-4">Publica tu hoja (Archivo → Compartir → Publicar en la web) y pega el <span class="font-mono">Sheet ID</span> y el nombre de la pestaña.</p>
+        <form id="sheetsForm" class="grid grid-cols-1 gap-3">
+          <label class="flex flex-col gap-1">
+            <span class="text-xs text-white/60">Google Sheet ID</span>
+            <input id="sheetId" placeholder="1A2B3C..." class="bg-black border border-white/20 rounded-xl px-3 py-2 placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/20" />
+          </label>
+          <label class="flex flex-col gap-1">
+            <span class="text-xs text-white/60">Nombre de la pestaña</span>
+            <input id="sheetName" value="Listado" class="bg-black border border-white/20 rounded-xl px-3 py-2 placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/20" />
+          </label>
+          <button class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white px-4 py-2 hover:bg-white hover:text-black transition">
+            Cargar desde Sheets
+          </button>
+        </form>
+        <p class="text-xs text-white/40 mt-4">Columnas esperadas: <span class="font-mono">titulo, ciudad, tipo, area, habitaciones, banos, descuento, precioBase, fecha, direccion, imagen</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-10 text-sm text-white/60 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
+      <div>© 2025 REMATES.PRO — Todos los derechos reservados.</div>
+      <div class="flex flex-wrap gap-3">
+        <a href="#" class="hover:text-white">Términos</a>
+        <a href="#" class="hover:text-white">Privacidad</a>
+        <a href="#contacto" class="hover:text-white">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+</body>
 </html>
